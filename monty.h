@@ -7,6 +7,8 @@
 #include <stdlib.h>
 #include <ctype.h>
 #include <stdarg.h>
+#include <sys/types.h>
+#include <sys/stat.h>
 
 typedef struct stack_s
 {
@@ -31,6 +33,7 @@ void pint(stack_t **, unsigned int);
 void pop(stack_t **, unsigned int);
 void nop(stack_t **stack, unsigned int line_number);
 void swap(stack_t **stack, unsigned int line_number);
+void pall(stack_t **, unsigned int);
 
 void add(stack_t **stack, unsigned int line_num);
 void sub(stack_t **stack, unsigned int line_num);
@@ -50,5 +53,6 @@ int len_chars(FILE *);
 int interpret_line(char *, int, int);
 stack_t *new_node(int n);
 void free_nodes(void);
+void free_vglo(void);
 
 #endif

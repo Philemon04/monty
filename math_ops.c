@@ -56,7 +56,7 @@ void multiply(stack_t **doubly, unsigned int cline)
 
 	if (m < 2)
 	{
-		dprintf(2, "L%u: can't mul, stack too short\n", cline);
+		fprintf(stderr, "L%u: can't mul, stack too short\n", cline);
 		free_vglo();
 		exit(EXIT_FAILURE);
 	}
@@ -105,15 +105,15 @@ void mod(stack_t **doubly, unsigned int cline)
 
 	if (m < 2)
 	{
-		dprintf(2, "L%u: can't mod, stack too short\n", cline);
-		free_vglo();
+		fprintf(stderr, "L%u: can't mod, stack too short\n", cline);
+		free_nodes();
 		exit(EXIT_FAILURE);
 	}
 
 	if ((*doubly)->n == 0)
 	{
-		dprintf(2, "L%u: division by zero\n", cline);
-		free_vglo();
+		fprintf(stderr, "L%u: division by zero\n", cline);
+		free_nodes();
 		exit(EXIT_FAILURE);
 	}
 
