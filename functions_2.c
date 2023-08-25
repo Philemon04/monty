@@ -134,23 +134,3 @@ void search_func(char *opcode, char *cmd, int l_num, int format)
 		error_out(3, l_num, opcode);
 	}
 }
-
-/**
- * pall - Adds a node to the stack.
- * @stack: Pointer to a pointer pointing to top node of the stack.
- * @line_number: Interger representing the line number of of the opcode.
- **/
-void pall(stack_t **stack, unsigned int line_number)
-{
-	stack_t *tmp;
-
-	(void) line_number;
-	if (stack == NULL)
-		exit(EXIT_FAILURE);
-	tmp = *stack;
-	while (tmp != NULL)
-	{
-		fprintf(stdout, "%d\n", tmp->n);
-		tmp = tmp->next;
-	}
-}
