@@ -42,43 +42,6 @@ void read_file(FILE *fd)
 }
 
 /**
- * open_file - Opens a file.
- * @file_name: String with the name of the file.
- **/
-void open_file(char *file_name)
-{
-	int file_check;
-	FILE *fd;
-
-	if (file_name == NULL)
-		error_out(2, file_name);
-	/*Checks if the file exists*/
-	file_check = access(file_name, R_OK);
-	if (file_check == -1)
-		error_out(2, file_name);
-	fd = fopen(file_name, "r");
-	if (fd == NULL)
-		error_out(2, file_name);
-	/*errors should be handled inside this function*/
-	read_file(fd);
-	/*might need to check for errors on closing a file.*/
-	fclose(fd);
-}
-
-/**
- * pint - Prints the top node of the stack.
- * @stack: Pointer to a pointer pointing to top node of the stack.
- * @line_number: Interger representing the line number of of the opcode.
- **/
-void pint(stack_t **stack, unsigned int line_number)
-{
-	if (stack == NULL || *stack == NULL)
-		others_error(6, line_number);
-
-	printf("%d\n", (*stack)->n);
-}
-
-/**
  * main - Entry to the program
  * @argc: Number of command line arguments.
  * @argv: An array containing the arguments.
