@@ -21,24 +21,22 @@ void free_nodes(void)
 }
 
 /**
- * read_file - Reads the content of a file line by line.
- * @fd: Pointer to a file descriptor of an open file
- **/
-void read_file(FILE *fd)
-{
-	int number_line;
-	int format = 0;
-	char *lineprt = NULL;
-	size_t n = 0;
+ * new_node - Creates and populates a node.
+ * @n: Number to go inside the node.
+ * Return: Upon sucess a pointer to the node. Otherwise NULL.
+ */
 
-	if (fd == NULL)
-		error_out(2, "file_name");
-	/*Read line by line*/
-	for (number_line = 1; getline(&lineprt, &n, fd) != EOF; number_line++)
-	{
-		format = interpret_line(lineprt, number_line, format);
-	}
-	free(lineprt);
+stack_t *new_node(int n)
+{
+	stack_t *node;
+
+	node = malloc(sizeof(stack_t));
+	if (node == NULL)
+		error_out(4);
+	node->next = NULL;
+	node->prev = NULL;
+	node->n = n;
+	return (node);
 }
 
 /**
