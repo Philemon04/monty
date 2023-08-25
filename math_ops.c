@@ -57,7 +57,7 @@ void multiply(stack_t **doubly, unsigned int cline)
 	if (m < 2)
 	{
 		fprintf(stderr, "L%u: can't mul, stack too short\n", cline);
-		free_vglo();
+		free_nodes();
 		exit(EXIT_FAILURE);
 	}
 
